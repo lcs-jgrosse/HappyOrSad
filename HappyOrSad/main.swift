@@ -53,4 +53,6 @@ if happyCount > sadCount {
     print("Sad")
 } else if happyCount == sadCount {
     print("Unsure")
+} else if happyCount == 0 && sadCount == 0 {
+    print("none")
 }
