@@ -10,13 +10,37 @@ import Foundation
 
 // INPUT
 // Get the user input
-var rawInput = readLine()
 
-// Unwrap rawInput, an optional String, to be sure it is not nil
-guard let input = rawInput else {
-    // Error
-    exit(9)
+// Create a loop that runs forever until we force it to stop
+var input = "" // Create a global variable called "input" and for now, set it to an empty string
+while 1 == 1 {
+    
+    // Prompt the user
+    
+    // Test #1: Get input from the user and make sure it is not nil
+    guard let givenInput = readLine() else {
+        
+        // If the input was nil, we need to ask for input again
+        continue // will skip up to the top of the while loop
+    }
+    
+    // Test #2: Make sure the input is the correct length
+    //          See if the count of characters is less than 1 OR more than 255
+    if givenInput.count < 1 || givenInput.count > 255 {
+        
+        // The input was too small or too large
+        // So, ask for input again
+        continue
+        
+    }
+    
+    // If we got here, we must have input that is valid
+    // So, stop looping and go to PROCESS section
+    input = givenInput
+    break // Stops the while loop
+    
 }
+
 
 // Look at the input provided
 // print("You said:")
